@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class InternApplication {
 
 	public static void main(String[] args) {
+		// hoge
 		SpringApplication.run(InternApplication.class, args);
 	}
 
