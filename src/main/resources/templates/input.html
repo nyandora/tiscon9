@@ -20,23 +20,23 @@
     <div class="page-title">
       お見積り情報入力
     </div>
-    <ul th:if="${#fields.hasErrors('all')}">
-      <li th:each="err : ${#fields.errors('all')}" th:text="${err}"></li>
-    </ul>
     <div class="col-sm-12">
       <fieldset>
         <div class="sub-title">お客様情報</div>
         <div class="form-group">
           <label for="customerName">氏名</label>
           <input type="text" id="customerName" name="customerName" th:field="*{customerName}" class="form-control" value="山田太郎"/>
+          <div class="text-danger" th:if="${#fields.hasErrors('customerName')}" th:errors="*{customerName}"></div>
         </div>
         <div class="form-group">
           <label for="tel">連絡先TEL</label>
           <input type="tel" id="tel" name="tel" th:field="*{tel}" class="form-control" value="03-1234-5678"/>
+          <div class="text-danger" th:if="${#fields.hasErrors('tel')}" th:errors="*{tel}"></div>
         </div>
         <div class="form-group">
           <label for="email">連絡先メールアドレス</label>
           <input type="text" id="email" name="email" th:field="*{email}" class="form-control" value="test@test.com"/>
+          <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
         </div>
         <div class="sub-title">集荷元・お届け先</div>
         <div class="form-group">
@@ -44,22 +44,26 @@
           <select id="oldPrefectureId" name="oldPrefectureId" class="form-control">
             <option th:each="prefecture : ${prefectures}" th:value="${prefecture.prefectureId}" th:field="*{oldPrefectureId}">[[${prefecture.prefectureName}]]</option>
           </select>
+          <div class="text-danger" th:if="${#fields.hasErrors('oldPrefectureId')}" th:errors="*{oldPrefectureId}"></div>
         </div>
         <div class="form-group">
           <label for="oldAddress">集荷元住所（市区町村以下）</label>
           <input type="text" id="oldAddress" name="oldAddress" th:field="*{oldAddress}"
                  class="form-control" value="新宿区西新宿1-1-1"/>
+          <div class="text-danger" th:if="${#fields.hasErrors('oldAddress')}" th:errors="*{oldAddress}"></div>
         </div>
         <div class="form-group">
           <label for="newPrefectureId">お届け先住所（都道府県）</label>
           <select id="newPrefectureId" name="newPrefectureId" class="form-control">
             <option th:each="prefecture : ${prefectures}" th:value="${prefecture.prefectureId}" th:field="*{newPrefectureId}">[[${prefecture.prefectureName}]]</option>
           </select>
+          <div class="text-danger" th:if="${#fields.hasErrors('newPrefectureId')}" th:errors="*{newPrefectureId}"></div>
         </div>
         <div class="form-group">
           <label for="newAddress">お届け先住所（市区町村以下）</label>
           <input type="text" id="newAddress" name="newAddress" th:field="*{newAddress}" class="form-control"
                  value="札幌市南区1"/>
+          <div class="text-danger" th:if="${#fields.hasErrors('newAddress')}" th:errors="*{newAddress}"></div>
         </div>
       </fieldset>
       <fieldset>
@@ -67,19 +71,23 @@
         <div class="form-group">
           <label for="box">段ボールの個数</label>
           <input type="text" id="box" name="box" th:field="*{box}" class="form-control" value="10"/>
+          <div class="text-danger" th:if="${#fields.hasErrors('box')}" th:errors="*{box}"></div>
         </div>
         <div class="form-group">
           <label for="bed">ベッドの個数</label>
           <input type="text" id="bed" name="bed" th:field="*{bed}" class="form-control" value="3"/>
+          <div class="text-danger" th:if="${#fields.hasErrors('bed')}" th:errors="*{bed}"></div>
         </div>
         <div class="form-group">
           <label for="bicycle">自転車の個数</label>
           <input type="text" id="bicycle" name="bicycle" th:field="*{bicycle}" class="form-control" value="1"/>
+          <div class="text-danger" th:if="${#fields.hasErrors('bicycle')}" th:errors="*{bicycle}"></div>
         </div>
         <div class="form-group">
           <label for="washingMachine">洗濯機の個数</label>
           <input type="text" id="washingMachine" name="washingMachine" th:field="*{washingMachine}" class="form-control"
                  value="1"/>
+          <div class="text-danger" th:if="${#fields.hasErrors('washingMachine')}" th:errors="*{washingMachine}"></div>
         </div>
         <div class="form-group">
           <label for="washingMachineInstallation">洗濯機の設置工事申し込み</label>
@@ -87,6 +95,7 @@
             <option th:value="false" th:text="なし">なし</option>
             <option th:value="true" th:text="あり">あり</option>
           </select>
+          <div class="text-danger" th:if="${#fields.hasErrors('washingMachineInstallation')}" th:errors="*{washingMachineInstallation}"></div>
         </div>
       </fieldset>
       <div class="form-group">
