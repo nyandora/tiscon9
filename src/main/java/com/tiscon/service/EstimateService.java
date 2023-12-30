@@ -11,6 +11,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,7 +93,11 @@ public class EstimateService {
             priceForOptionalService = estimateDAO.getPricePerOptionalService(OptionalServiceType.WASHING_MACHINE.getCode());
         }
 
-        return priceForDistance + pricePerTruck + priceForOptionalService;
+        float seasonWait = (dto.getMoveMonth().equals("3") || dto.getMoveMonth().equals("4")) ? 1.5F : dto.getMoveMonth().equals("9") ? 1.2F : 1;
+
+        float priceFloat = (priceForDistance + pricePerTruck) * seasonWait + priceForOptionalService;
+
+        return Math.round(priceFloat);
     }
 
     /**
