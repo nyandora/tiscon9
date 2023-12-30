@@ -2,6 +2,7 @@ package com.tiscon.form;
 
 import com.tiscon.validator.Numeric;
 
+import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -57,6 +58,15 @@ public class UserOrderForm {
 
     @NotBlank
     private String moveMonth;
+
+    @AssertTrue(message = "洗濯機の設置工事を申し込む場合は、洗濯機の個数を1以上にしてください。")
+    public boolean isValidWashingMachineInput() {
+        if (this.washingMachineInstallation) {
+            return !this.washingMachine.equals("0");
+        }
+
+        return true;
+    }
 
     public String getCustomerName() {
         return customerName;

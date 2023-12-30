@@ -20,6 +20,7 @@
     <div class="page-title">
       お見積り情報入力
     </div>
+    <div class="text-danger" th:if="${#fields.hasErrors('validWashingMachineInput')}" th:errors="*{validWashingMachineInput}"></div>
     <div class="col-sm-12">
       <fieldset>
         <div class="sub-title">お客様情報</div>
