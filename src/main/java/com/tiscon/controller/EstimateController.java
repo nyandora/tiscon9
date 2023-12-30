@@ -165,6 +165,11 @@ public class EstimateController {
         return "redirect:complete";
     }
 
+    @PostMapping(value = "order", params = "backToTop")
+    String backToTop() {
+        return "top";
+    }
+
     @GetMapping("complete")
     String complete() {
         return "complete";
