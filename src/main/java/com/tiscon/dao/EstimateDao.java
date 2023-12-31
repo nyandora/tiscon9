@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * 引越し見積もり機能においてDBとのやり取りを行うクラス。おおおお
+ * 引越し見積もり機能においてDBとのやり取りを行うクラス。
  *
  * @author Oikawa Yumi
  */
